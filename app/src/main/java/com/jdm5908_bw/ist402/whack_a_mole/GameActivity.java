@@ -15,6 +15,10 @@ public class GameActivity extends Activity {
         setContentView(R.layout.activity_game);
         initializeReferences();
 
+        // TODO instantiate game with difficulty setting
+        // TODO randomly show button for a predetermined period of time
+        // TODO Increment TextView (Yet To Be Added) for score
+
     }
 
     /**
