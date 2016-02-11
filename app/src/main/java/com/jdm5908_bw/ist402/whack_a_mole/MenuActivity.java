@@ -8,16 +8,37 @@ import android.widget.Button;
 
 public class MenuActivity extends Activity {
 
+    // UI Buttons to be referenced
+    Button newGameButton, highScoresButton, selectDifficultyButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        Button newGameButton = (Button) findViewById(R.id.newGameButton);
+        newGameButton = (Button) findViewById(R.id.newGameButton);
         newGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        highScoresButton = (Button) findViewById(R.id.highScoresButton);
+        highScoresButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HighScoreActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        selectDifficultyButton = (Button) findViewById(R.id.selectDifficultyButton);
+        selectDifficultyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), DifficultyActivity.class);
                 startActivity(intent);
             }
         });
