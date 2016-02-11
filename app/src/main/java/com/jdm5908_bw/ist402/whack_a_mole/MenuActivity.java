@@ -29,6 +29,9 @@ public class MenuActivity extends Activity {
         highScoresButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // TODO check if file exists and display toast if not
+
                 Intent intent = new Intent(getApplicationContext(), HighScoreActivity.class);
                 startActivity(intent);
             }
