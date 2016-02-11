@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Whack-A-Mole</string>
+    <string name="mole_hole_png">Mole Hole.png</string>
+</resources>
