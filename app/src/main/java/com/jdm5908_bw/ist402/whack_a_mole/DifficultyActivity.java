@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.PrintWriter;
 
 public class DifficultyActivity extends Activity {
@@ -33,8 +34,10 @@ public class DifficultyActivity extends Activity {
 
 
                 try{
-                    PrintWriter output = new PrintWriter(file);
+                    PrintWriter output = new PrintWriter(new FileOutputStream(file, false));
                     output.println("easy");
+                    output.flush();
+                    output.close();
                 }
                 catch (FileNotFoundException e){
                     e.printStackTrace();
@@ -54,6 +57,8 @@ public class DifficultyActivity extends Activity {
                 try{
                     PrintWriter output = new PrintWriter(file);
                     output.println("normal");
+                    output.flush();
+                    output.close();
                 }
                 catch (FileNotFoundException e){
                     e.printStackTrace();
@@ -73,6 +78,8 @@ public class DifficultyActivity extends Activity {
                 try{
                     PrintWriter output = new PrintWriter(file);
                     output.println("hard");
+                    output.flush();
+                    output.close();
                 }
                 catch (FileNotFoundException e){
                     e.printStackTrace();

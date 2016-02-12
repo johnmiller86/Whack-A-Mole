@@ -16,13 +16,15 @@ public class Game {
     public Game(String difficulty)
     {
         if (difficulty.equals("easy")){
-            gameSpeed = 1000;
+            //gameSpeed = 1000;
+            gameSpeed = 10000;
         }
         else if (difficulty.equals("normal")){
             gameSpeed = 750;
         }
         else {
-            gameSpeed = 500;
+            //gameSpeed = 500;
+            gameSpeed = 5;
         }
     }
 
