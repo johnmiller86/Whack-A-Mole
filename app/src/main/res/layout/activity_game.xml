@@ -101,7 +101,9 @@
         android:id="@+id/scoreTextView"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:textColor="#fefe00" />
+        android:textColor="#fefe00"
+        android:textSize="50sp"
+        android:text="@string/zero"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -110,6 +112,7 @@
         android:id="@+id/timeTextView"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:textColor="#fefe00" />
+        android:textColor="#fefe00"
+        android:text="@string/time_zero"/>
 </RelativeLayout>
 

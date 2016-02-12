@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Whack-A-Mole</string>
     <string name="mole_hole_png">Mole Hole.png</string>
+    <string name="zero">0</string>
+    <string name="time_zero">Time: 0</string>
 </resources>

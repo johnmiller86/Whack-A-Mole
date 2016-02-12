@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -23,7 +26,10 @@ public class GameActivity extends Activity {
     private CountDownTimer timer;
     private int mole, score;
     private Random random;
-
+    private String difficulty;
+    // Settings
+    File file;
+    BufferedReader reader;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,34 +40,37 @@ public class GameActivity extends Activity {
         random = new Random();
         mole = 0;
         score = 0;
+        difficulty = "normal";
         initializeGame();
 
-        // TODO instantiate game with difficulty setting
-        //if (!settingsFile.exists()){
-           // Game game = new Game();
-        //}
-        //else{
-            // settingsFile.getNextLine();
-            Game game = new Game("easy");
-        //}
+
+        file = new File(getFilesDir(), "Settings.txt");
+        Boolean exists = file.exists();
+        try {
+            reader = new BufferedReader(new FileReader(file));
+            String line ="";
+            while ((line = reader.readLine()) != null){
+                difficulty = line;
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Game game = new Game("hard");
 
         timer = new CountDownTimer(60000, game.getGameSpeed()) {
             @Override
             public void onTick(long millisUntilFinished) {
                 timeTextView.setText("Time: " + millisUntilFinished / 1000);
-
-                if (buttons.get(mole).getVisibility() == View.VISIBLE){
-                    buttons.get(mole).setVisibility(View.INVISIBLE);
-                }
-
-                // TODO Show Time in TextView
-
+                buttons.get(mole).setVisibility(View.INVISIBLE);
                 mole = random.nextInt(9);
                 buttons.get(mole).setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onFinish() {
+                buttons.get(mole).setVisibility(View.INVISIBLE);
                 timeTextView.setText("Time: 0");
                 Toast.makeText(GameActivity.this, "Game Over!!", Toast.LENGTH_SHORT).show();
 
@@ -105,6 +114,9 @@ public class GameActivity extends Activity {
        }
    }
 
+    /**
+     * Listener for all mole buttons.
+     */
     private final OnClickListener buttonListener = new OnClickListener(){
 
         public void onClick(View v){
@@ -113,5 +125,4 @@ public class GameActivity extends Activity {
             buttons.get(mole).setVisibility(View.INVISIBLE);
         }
     };
-
 }
