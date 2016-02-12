@@ -23,47 +23,60 @@ public class DifficultyActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_difficulty);
-
         file = new File(getFilesDir(), "Settings.txt");
-        try {
-            PrintWriter output = new PrintWriter(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
 
+        // Setting reference to easyButton and adding listener
         easyButton = (Button) findViewById(R.id.easyButton);
         easyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //TODO write difficulty to settings file
-                output.println("easy");
+
+                try{
+                    PrintWriter output = new PrintWriter(file);
+                    output.println("easy");
+                }
+                catch (FileNotFoundException e){
+                    e.printStackTrace();
+                }
 
                 Toast.makeText(DifficultyActivity.this, "Difficulty Set", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
 
+        // Setting reference to normalButton and adding listener
         normalButton = (Button) findViewById(R.id.normalButton);
         normalButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //TODO write difficulty to settings file
-                output.println("normal");
+                try{
+                    PrintWriter output = new PrintWriter(file);
+                    output.println("normal");
+                }
+                catch (FileNotFoundException e){
+                    e.printStackTrace();
+                }
 
                 Toast.makeText(DifficultyActivity.this, "Difficulty Set", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
 
+        // Setting reference to hardButton and adding listener
         hardButton = (Button) findViewById(R.id.hardButton);
         hardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //TODO write difficulty to settings file
-                output.println("hard");
+                try{
+                    PrintWriter output = new PrintWriter(file);
+                    output.println("hard");
+                }
+                catch (FileNotFoundException e){
+                    e.printStackTrace();
+                }
 
                 Toast.makeText(DifficultyActivity.this, "Difficulty Set", Toast.LENGTH_SHORT).show();
                 finish();
