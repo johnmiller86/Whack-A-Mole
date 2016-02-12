@@ -57,7 +57,7 @@ public class GameActivity extends Activity {
             e.printStackTrace();
         }
 
-        Game game = new Game("hard");
+        Game game = new Game(difficulty);
 
         timer = new CountDownTimer(60000, game.getGameSpeed()) {
             @Override
