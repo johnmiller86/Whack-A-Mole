@@ -9,7 +9,7 @@ public class Game {
     // No args constructor
     public Game(){
 
-        gameSpeed = 10000;
+        gameSpeed = 1000;
     }
 
     // Args constructor
